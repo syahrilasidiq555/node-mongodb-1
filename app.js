@@ -9,7 +9,9 @@ const blogRoutes = require('./routes/blogRoutes');
 const app = express();
 
 // connect to mongodb
-const dbURI = 'mongodb+srv://usersyahril:syahril@cluster0.mpnpm.mongodb.net/node-tuts?retryWrites=true&w=majority'
+require('dotenv').config();
+const dbURI = process.env.MONGODB_URI
+
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result)=> {
     app.listen(3000)
